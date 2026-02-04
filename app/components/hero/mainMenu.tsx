@@ -1,6 +1,6 @@
 "use client";
 
-export default function Main_Menu({ onOpenReservation }: MainMenuProps) {
+export default function Main_Menu() {
   const navItems = [
     { name: "Speisekarte", href: "#menu" },
     { name: "Reservierung"},
