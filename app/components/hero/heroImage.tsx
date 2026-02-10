@@ -22,12 +22,13 @@ export default function HeroImage() {
         <div className="w-16 h-0.5 bg-[#e7d8a9] mb-4 animate-pulse"></div>
         
         <h1 className="text-[#e7d8a9] text-6xl font-serif tracking-tight mb-2">
-          Willkommen im Genuss
+          Добро пожаловать в мир изысканного удовольствия.
         </h1>
         
         <p className="text-white/90 text-xl font-light max-w-xl leading-relaxed">
-          Traditionelle Küche trifft auf moderne Eleganz. 
-          Entdecken Sie unsere saisonalen Spezialitäten.
+          Здесь классические рецепты обретают современное звучание.
+          Приглашаем вас познакомиться с нашими авторскими блюдами,
+          созданными в гармонии со временем года.
         </p>
 
         
