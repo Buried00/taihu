@@ -3,7 +3,7 @@
 export default function Main_Menu() {
   const navItems = [
     { name: "Speisekarte", href: "#menu" },
-    { name: "Reservierung"},
+    { name: "Reservierung", action: onOpenReservation },
     { name: "Über Uns", href: "#about" },
     { name: "Kontakt", href: "#contact" },
   ];
@@ -15,6 +15,11 @@ export default function Main_Menu() {
           key={item.name}
           className="cursor-pointer transition-all duration-300 ease-in-out hover:text-white hover:scale-110 active:scale-95"
         >
+          {item.action ? (
+            <button onClick={item.action}>{item.name}</button>
+          ) : (
+            <a href={item.href}>{item.name}</a>
+          )}
         </li>
       ))}
     </ul>
