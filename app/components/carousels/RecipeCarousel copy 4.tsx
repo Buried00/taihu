@@ -3,17 +3,17 @@ import { Recipe } from "../../page";
 
 export default function RecipeCarousel4() {
   const recipes: Recipe[] = [
-    { title: "Rinderfilet", desc: "Mit Trüffelkruste", price: "40€", img: "/imgs/dish1.jpg" },
-    { title: "Lachs-Tartar", desc: "Frischer Wildlachs", price: "25€", img: "/imgs/dish2.jpg" },
-    { title: "Pasta Paradiso", desc: "Hausgemachte Pasta", price: "22€", img: "/imgs/dish3.jpg" },
-    { title: "Zitronen Sorbet", desc: "Sizilianische Zitronen", price: "15€", img: "/imgs/dish4.jpg" },
-    { title: "Sauerbraten", desc: "Rinderbraten in Essig-Beizen-Marinade mit Lebkuchensauce", price: "22€", img: "/imgs/dish5.jpg" },
+   { title: "Лепешки Цун Ю Бин", desc: "1 шт. 100 г", price: "280 руб.", img: "/imgs/dish16.jpg" },
+    { title: "Жареные лепешки Шаобин", desc: "1 шт. 100 г", price: "220 руб.", img: "/imgs/dish17.jpg" },
+    { title: "Сян Су Ню Жоу Бин (Лепешки с тмином и говядиной)", desc: "2 шт. 200 г", price: "320 руб.", img: "/imgs/dish18.jpg" },
+    { title: "Зеленые луковые блины Цун Ю Бин", desc: "1 шт. 150 г", price: "250 руб.", img: "/imgs/dish19.jpg" },
+    { title: "Лаваш по-пекински", desc: "1 шт. 100 г", price: "180 руб.", img: "/imgs/dish20.jpg" },
   ];
 
   return (
     <section id="menu" className="py-20 bg-[#1a1a1a]">
       <div className="mx-25 mb-10">
-        <h2 className="text-[#e7d8a9] text-4xl font-serif">Saisonal Empfohlen</h2>
+        <h2 className="text-[#e7d8a9] text-4xl font-serif">Хлеб & выпичка</h2>
       </div>
 
       <div className="flex gap-8 overflow-x-auto px-25 pb-10 scrollbar-hide snap-x snap-mandatory">
