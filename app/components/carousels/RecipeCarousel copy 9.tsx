@@ -1,7 +1,7 @@
 "use client";
 import { Recipe } from "../../page";
 
-export default function RecipeCarousel() {
+export default function RecipeCarousel9() {
   const recipes: Recipe[] = [
     { title: "Rinderfilet", desc: "Mit Trüffelkruste", price: "40€", img: "/imgs/dish1.jpg" },
     { title: "Lachs-Tartar", desc: "Frischer Wildlachs", price: "25€", img: "/imgs/dish2.jpg" },
