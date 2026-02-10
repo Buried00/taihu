@@ -1,11 +1,7 @@
 "use client";
 import { Recipe } from "../../page";
 
-interface Props {
-  onAdd: (recipe: Recipe) => void;
-}
-
-export default function RecipeCarousel({ onAdd }: Props) {
+export default function RecipeCarousel() {
   const recipes: Recipe[] = [
     { title: "Rinderfilet", desc: "Mit Trüffelkruste", price: "40€", img: "/imgs/dish1.jpg" },
     { title: "Lachs-Tartar", desc: "Frischer Wildlachs", price: "25€", img: "/imgs/dish2.jpg" },
@@ -23,14 +19,6 @@ export default function RecipeCarousel({ onAdd }: Props) {
       <div className="flex gap-8 overflow-x-auto px-25 pb-10 scrollbar-hide snap-x snap-mandatory">
         {recipes.map((recipe, index) => (
           <div key={index} className="min-w-75 h-100 relative group overflow-hidden rounded-lg snap-center bg-zinc-900">
-            {/* The Button */}
-            <button 
-              onClick={() => onAdd(recipe)} 
-              className="absolute top-4 right-4 z-50 bg-[#e7d8a9] text-black px-4 py-1 text-xs font-bold rounded hover:bg-white transition-colors"
-            >
-              + Hinzufügen
-            </button>
-
             <div className="absolute inset-0 opacity-70 group-hover:opacity-100 transition-opacity duration-500">
               <img src={recipe.img} alt={recipe.title} className="w-full h-full object-cover" />
             </div>
