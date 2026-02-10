@@ -3,17 +3,17 @@ import { Recipe } from "../../page";
 
 export default function RecipeCarousel9() {
   const recipes: Recipe[] = [
-    { title: "Rinderfilet", desc: "Mit Trüffelkruste", price: "40€", img: "/imgs/dish1.jpg" },
-    { title: "Lachs-Tartar", desc: "Frischer Wildlachs", price: "25€", img: "/imgs/dish2.jpg" },
-    { title: "Pasta Paradiso", desc: "Hausgemachte Pasta", price: "22€", img: "/imgs/dish3.jpg" },
-    { title: "Zitronen Sorbet", desc: "Sizilianische Zitronen", price: "15€", img: "/imgs/dish4.jpg" },
-    { title: "Sauerbraten", desc: "Rinderbraten in Essig-Beizen-Marinade mit Lebkuchensauce", price: "22€", img: "/imgs/dish5.jpg" },
+   { title: "Танюань в имбирном сиропе", desc: "рисовые шарики с начинкой из кунжутной пасты или сладкой бобовой пасты. 150 г", price: "310 руб.", img: "/imgs/dish42.jpg" },
+    { title: "Манговый пудинг с кокосовым молоком", desc: "Слоеный десерт из свежего мангового пюре, нежного кокосового крема и желе из сока лайма. 150 г", price: "420 руб.", img: "/imgs/dish43.jpg" },
+    { title: "Традиционный лунный пряник", desc: "Мягкое песочное тесто с начинкой из пасты лотоса. 100 г", price: "350 руб.", img: "/imgs/dish44.jpg" },
+    { title: "Ананасовые булочки «Бо Ло Бао»", desc: "Сладкие, воздушные булочки с хрустящей корочкой, похожей на ананасовую кожуру. 100 г", price: "350 рую.", img: "/imgs/dish45.jpg" },
+    { title: "Фирменные роллы с бананом и манго в весенней обертке", desc: "Хрустящие рулетики из тончайшего теста с начинкой из банана и манго. 150 г", price: "390 руб.", img: "/imgs/dish46.jpg" },
   ];
 
   return (
     <section id="menu" className="py-20 bg-[#1a1a1a]">
       <div className="mx-25 mb-10">
-        <h2 className="text-[#e7d8a9] text-4xl font-serif">Saisonal Empfohlen</h2>
+        <h2 className="text-[#e7d8a9] text-4xl font-serif">Десерты</h2>
       </div>
 
       <div className="flex gap-8 overflow-x-auto px-25 pb-10 scrollbar-hide snap-x snap-mandatory">

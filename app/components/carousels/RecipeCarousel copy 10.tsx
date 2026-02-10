@@ -3,17 +3,17 @@ import { Recipe } from "../../page";
 
 export default function RecipeCarousel10() {
   const recipes: Recipe[] = [
-    { title: "Rinderfilet", desc: "Mit Trüffelkruste", price: "40€", img: "/imgs/dish1.jpg" },
-    { title: "Lachs-Tartar", desc: "Frischer Wildlachs", price: "25€", img: "/imgs/dish2.jpg" },
-    { title: "Pasta Paradiso", desc: "Hausgemachte Pasta", price: "22€", img: "/imgs/dish3.jpg" },
-    { title: "Zitronen Sorbet", desc: "Sizilianische Zitronen", price: "15€", img: "/imgs/dish4.jpg" },
-    { title: "Sauerbraten", desc: "Rinderbraten in Essig-Beizen-Marinade mit Lebkuchensauce", price: "22€", img: "/imgs/dish5.jpg" },
+      { title: "Соевый соус классический", desc: "50 г", price: "80 руб.", img: "/imgs/dish47.jpg" },
+    { title: "Соус чили острый *Лацз*", desc: "50 г", price: "110 руб.", img: "/imgs/dish48.jpg" },
+    { title: "Соус Хойсин", desc: "60 г", price: "135 руб.", img: "/imgs/dish49.jpg" },
+    { title: "Соус кисло-сладкий ананасовый", desc: "80 г", price: "150 руб.", img: "/imgs/dish50.jpg" },
+    { title: "Чесночно-имбирный соус", desc: "60 г", price: "115 руб.", img: "/imgs/dish51.jpg" },
   ];
 
   return (
     <section id="menu" className="py-20 bg-[#1a1a1a]">
       <div className="mx-25 mb-10">
-        <h2 className="text-[#e7d8a9] text-4xl font-serif">Saisonal Empfohlen</h2>
+        <h2 className="text-[#e7d8a9] text-4xl font-serif">Соусы</h2>
       </div>
 
       <div className="flex gap-8 overflow-x-auto px-25 pb-10 scrollbar-hide snap-x snap-mandatory">
