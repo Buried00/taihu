@@ -1,9 +1,13 @@
 "use client";
 
-export default function Main_Menu() {
+interface MainMenuProps {
+  onOpenReservation: () => void;
+}
+
+export default function Main_Menu({ onOpenReservation }: MainMenuProps) {
   const navItems = [
     { name: "Speisekarte", href: "#menu" },
-    { name: "Reservierung",  href: "#menu" },
+    { name: "Reservierung", action: onOpenReservation },
     { name: "Über Uns", href: "#about" },
     { name: "Kontakt", href: "#contact" },
   ];
@@ -15,8 +19,10 @@ export default function Main_Menu() {
           key={item.name}
           className="cursor-pointer transition-all duration-300 ease-in-out hover:text-white hover:scale-110 active:scale-95"
         >
-          {item.href ? (
-          <a href={item.href}>{item.name}</a>
+          {item.action ? (
+            <button onClick={item.action}>{item.name}</button>
+          ) : (
+            <a href={item.href}>{item.name}</a>
           )}
         </li>
       ))}
