@@ -6,8 +6,8 @@ import Main_Menu from "./components/hero/mainMenu";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#1a1a1a]"> 
-      <Main_Menu />
       <HeroImage />
+      <Main_Menu /
     </main>
   );
 }
