@@ -13,6 +13,7 @@ import RecipeCarousel8 from "./components/carousels/RecipeCarousel copy 8";
 import RecipeCarousel9 from "./components/carousels/RecipeCarousel copy 9";
 import RecipeCarousel10 from "./components/carousels/RecipeCarousel copy 10";
 import RecipeCarousel11 from "./components/carousels/RecipeCarousel copy 11";
+import AboutUs from "/components/hero/AboutUs";
 
 export type Recipe = {
   title: string;
@@ -37,6 +38,7 @@ export default function Home() {
       <RecipeCarousel9 />
       <RecipeCarousel10 />
       <RecipeCarousel11 />
+
     </main>
   );
 }
