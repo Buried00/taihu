@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroImage() {
   return (
-    <div className="relative w-full h-[80vh] overflow-hidden">
+    <div className="relative w-full h-[100vh] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 transition-transform duration-1000 hover:scale-105">
         <Image
