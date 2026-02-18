@@ -21,7 +21,7 @@ export default function HeroImage() {
       
         <div className="w-16 h-0.5 bg-[#415a77] mb-4 animate-pulse"></div>
         
-        <h1 className="text-[#1b263b] text-6xl font-serif tracking-tight mb-2">
+        <h1 className="text-[#c9ada7] text-6xl font-serif tracking-tight mb-2">
           Welcome to Jeffrey Epstein Island !
         </h1>
         
