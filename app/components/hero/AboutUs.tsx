@@ -17,6 +17,7 @@ export default function AboutUs() {
           <div className="space-y-8">
             <h2 className="text-[#e7d8a9] text-4xl md:text-5xl font-serif leading-tight">
               Кулинария,что хранит мудрость —  <br /> как туман над озером Тайху
+            </h2>
             <p className="text-gray-300 text-lg leading-relaxed">
              Taihu — это путешествие в сердце китайской провинции Цзянсу,
               где древние традиции сливаются с поэзией озера Тайху.
