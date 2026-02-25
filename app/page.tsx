@@ -38,6 +38,7 @@ export default function Home() {
       <RecipeCarousel9 />
       <RecipeCarousel10 />
       <RecipeCarousel11 />
+      <AboutUs />
 
     </main>
   );
