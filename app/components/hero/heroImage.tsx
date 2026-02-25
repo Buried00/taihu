@@ -19,15 +19,15 @@ export default function HeroImage() {
 
       <div className="relative h-full flex flex-col justify-end items-start px-25 pb-16">
       
-        <div className="w-16 h-0.5 bg-[#415a77] mb-4 animate-pulse"></div>
+        <div className="w-16 h-0.5 bg-[#e7d8a9] mb-4 animate-pulse"></div>
         
-        <h1 className="text-[#c9ada7] text-6xl font-serif tracking-tight mb-2">
-          Welcome to Jeffrey Epstein Island !
+        <h1 className="text-[#e7d8a9] text-6xl font-serif tracking-tight mb-2">
+         Welcome to Taihu Restaurant!
         </h1>
         
         <p className="text-white/90 text-xl font-light max-w-xl leading-relaxed">
-          Welcome to My Island Bistro, a place with a tropical atmosphere, 
-          an exclusive menu, and signature dishes made from "mysterious meat"
+          The flavors of the great Taihu Lake come to life in the restaurant. Modern Chinese cuisine,
+           prepared with respect for tradition, is characterized by its brightness, freshness, and home-cooked dishes.
         </p>
 
         
