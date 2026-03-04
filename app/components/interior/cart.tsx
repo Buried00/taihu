@@ -43,7 +43,7 @@ export default function Cart({ items, onRemove, onCheckout }: CartProps) {
               ))}
             </div>
             <div className="mt-auto">
-              <div className="text-white text-xl font-bold mb-4">Total: {total}€</div>
+              <div className="text-white text-xl font-bold mb-4">Total: {total}₽</div>
               <button 
                 onClick={() => { setIsOpen(false); onCheckout(); }} 
                 className="w-full bg-[#e7d8a9] py-3 rounded font-bold"
