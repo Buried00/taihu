@@ -14,6 +14,7 @@ import RecipeCarousel9 from "./components/carousels/RecipeCarousel copy 9";
 import RecipeCarousel10 from "./components/carousels/RecipeCarousel copy 10";
 import RecipeCarousel11 from "./components/carousels/RecipeCarousel copy 11";
 import AboutUs from "./components/hero/AboutUs";
+import Cart from "./components/interior/cart.tsx";
 
 export type Recipe = {
   title: string;
@@ -23,22 +24,41 @@ export type Recipe = {
 };
 
 export default function Home() {
+  const [isResOpen, setIsResOpen] = useState(false);
+  const [cartItems, setCartItems] = useState<Recipe[]>([]);
+
+  const addToCart = (recipe: Recipe) => {
+    setCartItems([...cartItems, recipe]);
+  };
+
+  const removeFromCart = (title: string) => {
+  setCartItems(cartItems.filter((item) => item.title !== title));
+};
+
+const clearCart = () => {
+  setCartItems([]);
+};
   return (
     <main className="min-h-screen bg-[#1a1a1a]"> 
       <HeroImage />
       <Main_Menu />
-      <RecipeCarousel1 />
-      <RecipeCarousel2 />
-      <RecipeCarousel3 />
-      <RecipeCarousel4 />
-      <RecipeCarousel5 />
-      <RecipeCarousel6 />
-      <RecipeCarousel7 />
-      <RecipeCarousel8 />
-      <RecipeCarousel9 />
-      <RecipeCarousel10 />
-      <RecipeCarousel11 />
+      <RecipeCarousel1 onAdd={addToCart}/>
+      <RecipeCarousel2 onAdd={addToCart}/>
+      <RecipeCarousel3 onAdd={addToCart}/>
+      <RecipeCarousel4 onAdd={addToCart}/>
+      <RecipeCarousel5 onAdd={addToCart}/>
+      <RecipeCarousel6 onAdd={addToCart}/>
+      <RecipeCarousel7 onAdd={addToCart}/>
+      <RecipeCarousel8 onAdd={addToCart}/>
+      <RecipeCarousel9 onAdd={addToCart}/>
+      <RecipeCarousel10 onAdd={addToCart}/>
+      <RecipeCarousel11 onAdd={addToCart}/>
       <AboutUs />
+      <Cart
+        items={cartItems}
+        onRemove={removeFromCart} 
+        onCheckout={() => setIsResOpen(true)} 
+      />
 
     </main>
   );
