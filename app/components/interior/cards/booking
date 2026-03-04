@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Бронирование стола — Тайху</title>
+  <style>
+    :root {
+      --primary: #c41e3b;
+      --primary-dark: #a11831;
+      --dark: #111;
+      --gray: #222;
+      --light: #eee;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      min-height: 100vh;
+      padding: 20px 12px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 540px;
+      margin: 0 auto;
+      background: #181818;
+      border-radius: 16px;
+      padding: 2.2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      border: 1px solid #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 1.8rem;
+      font-size: 1.9rem;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.15s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(196, 30, 59, 0.25);
+    }
+
+    input[type="tel"] {
+      letter-spacing: 0.8px;
+    }
+
+    .row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .row > * {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(0,180,0,0.15);
+      border: 1px solid rgba(0,180,0,0.4);
+      border-radius: 12px;
+      color: #8fff8f;
+      margin-top: 1rem;
+    }
+
+    .error {
+      color: #ff6b6b;
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      display: none;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 1.6rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Забронировать столик</h1>
+
+  <form id="reservationForm" novalidate>
+
+    <div class="form-group">
+      <label for="name">Ваше имя *</label>
+      <input type="text" id="name" name="name" required placeholder="Например, Алексей" autocomplete="name">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Телефон *</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        required 
+        placeholder="7XXXXXXXXXX" 
+        pattern="[0-9]{11}" 
+        maxlength="11" 
+        inputmode="numeric"
+        title="Введите 11 цифр номера телефона (без +7, 8 и пробелов)"
+      >
+      <div class="error" id="phoneError">Номер должен содержать ровно 11 цифр</div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label for="date">Дата *</label>
+        <input type="date" id="date" name="date" required min="">
+      </div>
+
+      <div class="form-group">
+        <label for="time">Время *</label>
+        <select id="time" name="time" required>
+          <option value="" disabled selected>Выберите время</option>
+          <!-- Заполним через JS -->
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label for="persons">Количество человек *</label>
+        <select id="persons" name="persons" required>
+          <option value="" disabled>—</option>
+          <option value="1">1 гость</option>
+          <option value="2">2 гостя</option>
+          <option value="3">3 гостя</option>
+          <option value="4">4 гостя</option>
+          <option value="5">5 гостей</option>
+          <option value="6">6 гостей</option>
+          <option value="7">7 гостей</option>
+          <option value="8">8 гостей</option>
+          <option value="9">9 гостей</option>
+          <option value="10">10 гостей</option>
+          <option value="11+">11+ гостей</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="occasion">Повод</label>
+        <select id="occasion" name="occasion">
+          <option value="">Не выбран</option>
+          <option value="День рождения">День рождения</option>
+          <option value="Годовщина">Годовщина / Свадьба</option>
+          <option value="Корпоратив">Корпоратив / деловая встреча</option>
+          <option value="Свидание">Романтический ужин</option>
+          <option value="Друзья">Встреча с друзьями</option>
+          <option value="Другое">Другое</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="wishes">Пожелания / особые требования</label>
+      <textarea id="wishes" name="wishes" rows="4" placeholder="Аллергии, детское меню, место у окна, банкетное меню и т.д..."></textarea>
+    </div>
+
+    <button type="submit">Забронировать</button>
+
+    <div class="success" id="successMessage">
+      <h2 style="margin-bottom:0.8rem">Спасибо!</h2>
+      <p>Мы получили вашу заявку.<br>В ближайшее время с вами свяжется администратор.</p>
+    </div>
+
+  </form>
+</div>
+
+<script>
+// Минимальная дата — сегодня
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('date').setAttribute('min', today);
+
+// Заполняем время (например, с 17:00 до 00:00 каждые 30 минут)
+const timeSelect = document.getElementById('time');
+const startHour = 17;
+const endHour = 24;
+
+for (let h = startHour; h < endHour; h++) {
+  for (let m = 0; m < 60; m += 30) {
+    const hourStr = h.toString().padStart(2, '0');
+    const minStr = m.toString().padStart(2, '0');
+    const option = document.createElement('option');
+    option.value = `${hourStr}:${minStr}`;
+    option.textContent = `${hourStr}:${minStr}`;
+    timeSelect.appendChild(option);
+  }
+}
+// Последний час без 30 мин
+if (endHour === 24) {
+  const option = document.createElement('option');
+  option.value = "00:00";
+  option.textContent = "00:00";
+  timeSelect.appendChild(option);
+}
+
+const form = document.getElementById('reservationForm');
+const phoneInput = document.getElementById('phone');
+const phoneError = document.getElementById('phoneError');
+const success = document.getElementById('successMessage');
+
+phoneInput.addEventListener('input', (e) => {
+  e.target.value = e.target.value.replace(/\D/g, '');
+  phoneError.style.display = 'none';
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const phone = phoneInput.value;
+  if (phone.length !== 11) {
+    phoneError.style.display = 'block';
+    phoneInput.focus();
+    return;
+  }
+
+  // Здесь обычно отправка на сервер / Telegram / email
+  // Пример: console.log(Object.fromEntries(new FormData(form)));
+
+  form.style.display = 'none';
+  success.style.display = 'block';
+
+  // Можно добавить сброс формы через 10 секунд или редирект
+  // setTimeout(() => location.reload(), 8000);
+});
+</script>
+
+</body>
+</html>
