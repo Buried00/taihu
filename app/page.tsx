@@ -43,7 +43,7 @@ const clearCart = () => {
     <main className="min-h-screen bg-[#1a1a1a]"> 
       <HeroImage />
       <Main_Menu />
-      <RecipeCarousel1 onAdd={addToCart}/>
+      <RecipeCarousel1 onAdd={addToCart} />
       <RecipeCarousel2 onAdd={addToCart}/>
       <RecipeCarousel3 onAdd={addToCart}/>
       <RecipeCarousel4 onAdd={addToCart}/>

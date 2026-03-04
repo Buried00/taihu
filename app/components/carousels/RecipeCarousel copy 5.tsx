@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel5() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel5({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
     { title: "Рыба по-сычуаньски «Шуйчжу Юй»", desc: "Филе рыбы (окунь), тушенное в огненном масле с сычуаньским перцем и овощами. 600 г", price: "1200 руб.", img: "/imgs/dish21.jpg" },
     { title: "Угорь, тушеный в пикантном соусе", desc: "Нежное мясо угря в густом соусе на основе рисового вина и соевого соуса. 400 г", price: "1100 руб.", img: "/imgs/dish22.jpg" },

@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel9() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel9({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
    { title: "Танюань в имбирном сиропе", desc: "рисовые шарики с начинкой из кунжутной пасты или сладкой бобовой пасты. 150 г", price: "310 руб.", img: "/imgs/dish42.jpg" },
     { title: "Манговый пудинг с кокосовым молоком", desc: "Слоеный десерт из свежего мангового пюре, нежного кокосового крема и желе из сока лайма. 150 г", price: "420 руб.", img: "/imgs/dish43.jpg" },

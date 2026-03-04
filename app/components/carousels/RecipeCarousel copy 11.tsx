@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel11() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel11({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
        { title: "«Колодец Дракона» (зеленый чай)", desc: "Чайник 450 мл", price: "450 руб.", img: "/imgs/dish52.jpg" },
     { title: "«Железная Богиня Милосердия» (бирюзовый чай)", desc: "Чайник 400 мл", price: "500 руб.", img: "/imgs/dish53.jpg" },

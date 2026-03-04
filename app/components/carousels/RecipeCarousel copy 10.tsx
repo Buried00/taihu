@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel10() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel10({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
       { title: "Соевый соус классический", desc: "50 г", price: "80 руб.", img: "/imgs/dish47.jpg" },
     { title: "Соус чили острый *Лацз*", desc: "50 г", price: "110 руб.", img: "/imgs/dish48.jpg" },

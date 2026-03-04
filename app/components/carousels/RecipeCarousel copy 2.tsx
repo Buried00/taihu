@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel2() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel2({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
     { title: "Салат с курицей Гунбао (тепл.)", desc: "Курица, овощи и арахис в знаменитом остром-кисло-сладком соусе. 300 г", price: "520 руб.", img: "/imgs/dish6.jpg" },
     { title: "Салат «Инь-Ян» из огурца и тофу", desc: "Свежий огурец и жареный тофу с легкой заправкой. 280 г", price: "360.", img: "/imgs/dish7.jpg" },

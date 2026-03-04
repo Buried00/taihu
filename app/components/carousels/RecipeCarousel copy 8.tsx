@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel8() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel8({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
    { title: "Wok «Чоу Мейн» с курицей»", desc: "Жареная яичная лапша с курицей, овощами и ростками сои. 350 г", price: "520 руб.", img: "/imgs/dish36.jpg" },
     { title: "Wok «Чжаньцзян» со свининой»", desc: "Толстая рисовая лапша с фаршем и черным бобовым соусом. 350 г", price: "550 руб.", img: "/imgs/dish37.jpg" },

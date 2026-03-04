@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel6() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel6({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
     { title: "Утка по-пекински", desc: "Хрустящая утка с тонкими блинчиками, соусом хойсин, огурцом и луком. 600 г", price: "2200 руб.", img: "/imgs/dish26.jpg" },
     { title: "Свинина в кисло-сладком соусе «Гулаожоу»", desc: "Хрустящие кусочки свинины в классическом соусе с ананасом и перцем. 350 г", price: "650 руб.", img: "/imgs/dish27.jpg" },

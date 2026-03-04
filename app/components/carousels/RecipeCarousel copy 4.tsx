@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel4() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel4({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
    { title: "Лепешки Цун Ю Бин", desc: "1 шт. 100 г", price: "280 руб.", img: "/imgs/dish16.jpg" },
     { title: "Жареные лепешки Шаобин", desc: "1 шт. 100 г", price: "220 руб.", img: "/imgs/dish17.jpg" },

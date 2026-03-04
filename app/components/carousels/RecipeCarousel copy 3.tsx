@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel3() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel3({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
     { title: "Хого из говядины", desc: "Пикантный бульон с тонкой говядиной, овощами и тофу. 350 г", price: "750 руб.", img: "/imgs/dish11.jpg" },
     { title: "Суп из морепродуктов «Шark Fin»", desc: "Насыщенный бульон с креветками, гребешками, крабом и яичной лапшой. 300 г", price: "890 руб.", img: "/imgs/dish12.jpg" },

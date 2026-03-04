@@ -1,7 +1,10 @@
 "use client";
-import { Recipe } from "../../page";
+import { Recipe } from "@/app/page";   // подправь путь, если нужно"../../page";
 
-export default function RecipeCarousel7() {
+interface RecipeCarouselProps {
+  onAdd: (recipe: Recipe) => void;
+}
+export default function RecipeCarousel7({ onAdd }: RecipeCarouselProps) {
   const recipes: Recipe[] = [
     { title: "Рис жасминовый на пару", desc: "200 г", price: "180 руб.", img: "/imgs/dish31.jpg" },
     { title: "Рис жареный с яйцом и зеленым луком", desc: "250 г", price: "280 руб.", img: "/imgs/dish32.jpg" },
