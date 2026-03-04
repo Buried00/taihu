@@ -14,7 +14,7 @@ import RecipeCarousel9 from "./components/carousels/RecipeCarousel copy 9";
 import RecipeCarousel10 from "./components/carousels/RecipeCarousel copy 10";
 import RecipeCarousel11 from "./components/carousels/RecipeCarousel copy 11";
 import AboutUs from "./components/hero/AboutUs";
-import Cart from "./components/interior/cart.tsx";
+import Cart from "./components/interior/cart";
 
 export type Recipe = {
   title: string;
