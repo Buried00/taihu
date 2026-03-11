@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import ReservationForm from "../booking"; // Исправленный путь
+import ReservationForm from "./booking";
 
 export default function Main_Menu() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,10 +26,7 @@ export default function Main_Menu() {
               {item.href ? (
                 <a href={item.href}>{item.name}</a>
               ) : (
-                <button
-                  onClick={item.action}
-                  className="bg-transparent border-none text-inherit font-inherit cursor-pointer"
-                >
+                <button onClick={item.action} className="bg-transparent border-none text-inherit font-inherit cursor-pointer">
                   {item.name}
                 </button>
               )}
