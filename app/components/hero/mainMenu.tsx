@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import ReservationForm from "./booking";
+import ReservationForm from "./components/interior/cards/booking";
 
 export default function Main_Menu() {
   const [isModalOpen, setIsModalOpen] = useState(false);
