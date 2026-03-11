@@ -68,7 +68,6 @@ export default function ReservationForm({ onClose }: ReservationFormProps) {
     console.log('Форма отправлена:', formData);
     setSubmitted(true);
     
-    // Автоматически закрываем модальное окно через 3 секунды после успеха
     if (onClose) {
       setTimeout(onClose, 3000);
     }
