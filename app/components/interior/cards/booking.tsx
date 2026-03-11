@@ -1,8 +1,7 @@
 // components/ReservationForm.tsx
-'use client'; // если Next.js App Router
-
+'use client';
 import { useState, FormEvent, ChangeEvent } from 'react';
-import styles from './ReservationForm.module.css'; // создай файл стилей или используй inline ниже
+import styles from './ReservationForm.module.css';
 
 interface FormData {
   name: string;
@@ -12,6 +11,10 @@ interface FormData {
   persons: string;
   occasion: string;
   wishes: string;
+}
+
+interface ReservationFormProps {
+  onClose?: () => void;
 }
 
 const initialFormData: FormData = {
@@ -24,27 +27,23 @@ const initialFormData: FormData = {
   wishes: '',
 };
 
-export default function ReservationForm() {
-  const [formData, setFormData] = useState<FormData>(initialFormData);
+export default function ReservationForm({ onClose }: ReservationFormProps) {
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [submitted, setSubmitted] = useState(false);
-
   const today = new Date().toISOString().split('T')[0];
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-
     if (name === 'phone') {
-      // Только цифры, максимум 11
       const numeric = value.replace(/\D/g, '').slice(0, 11);
       setFormData((prev) => ({ ...prev, [name]: numeric }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
 
-    // Сбрасываем ошибку при вводе
     if (errors[name as keyof FormData]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -52,7 +51,6 @@ export default function ReservationForm() {
 
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
-
     if (!formData.name.trim()) newErrors.name = 'Введите имя';
     if (formData.phone.length !== 11) newErrors.phone = 'Номер должен содержать ровно 11 цифр';
     if (!formData.date) newErrors.date = 'Выберите дату';
@@ -63,22 +61,19 @@ export default function ReservationForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
-    // Здесь будет отправка данных
     console.log('Форма отправлена:', formData);
-
-    // Имитация успешной отправки
     setSubmitted(true);
-
-    // Можно сбросить форму через N секунд
-    // setTimeout(() => setSubmitted(false), 8000);
+    
+    // Автоматически закрываем модальное окно через 3 секунды после успеха
+    if (onClose) {
+      setTimeout(onClose, 3000);
+    }
   };
 
-  // Генерация вариантов времени (17:00 – 00:00, каждые 30 мин)
   const timeOptions = [];
   for (let h = 17; h < 24; h++) {
     for (let m = 0; m < 60; m += 30) {
@@ -92,16 +87,20 @@ export default function ReservationForm() {
   if (submitted) {
     return (
       <div className={styles.success}>
-        <h2>Спасибо за заявку!</h2>
+        <h3>Спасибо за заявку!</h3>
         <p>Мы свяжемся с вами в ближайшее время.</p>
+        {onClose && (
+          <button onClick={onClose} className={styles.closeBtn}>
+            Закрыть
+          </button>
+        )}
       </div>
     );
   }
 
   return (
     <div className={styles.container}>
-      <h1>Забронировать столик</h1>
-
+      <h2 className={styles.title}>Забронировать столик</h2>
       <form onSubmit={handleSubmit} noValidate>
         <div className={styles.formGroup}>
           <label htmlFor="name">Ваше имя *</label>
